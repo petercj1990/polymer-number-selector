@@ -1,0 +1,53 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<link rel="import" href="./bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="./bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="number-selector">
+    <template>
+        <style>
+            /* local DOM styles go here */
+            :host {
+                display: flex;
+            }
+        </style>
+        <!-- local DOM goes here -->
+        <iron-icon icon='add-circle-outline' on-tap="increment"></iron-icon>
+        <div class="currVal">
+        {{value}}</div>
+        <iron-icon icon="remove-circle-outline" on-tap="decrement"></iron-icon>
+    </template>
+
+    <script>
+        Polymer({
+         is: 'number-selector',
+         properties:{
+         	value:{
+         		value: 0,
+         		type: Number
+         	},
+         	maximum:{
+         		value: NaN,
+         		type: Number
+         	},
+         	minimum:{
+         		value: NaN,
+         		type: Number
+         	}
+         },
+		increment: function () {
+			if(this.value != this.maximum){	
+				this.value++;
+			}
+		},
+		decrement: function (){
+			if(this.value != this.minimum){
+				this.value--;
+			}
+		}
+        });
+    </script>
+
+</dom-module>
+
+
+
